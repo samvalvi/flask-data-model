@@ -41,12 +41,12 @@ class Favorite(db.Model):
     # Here we define columns for the table favorite
     # Notice that each column is also a normal Python instance attribute.
     id = db.Column(db.Integer, primary_key=True)
-    user_id= db.Column(db.Integer, ForeignKey('User.id'))
-    planet_id= db.Column(db.Integer, ForeignKey('Planet.id'))
-    character_id= db.Column(db.Integer, ForeignKey('Character.id'))
-    user = relationship(User)
-    planet = relationship(Planet)
-    character = relationship(Character)
+    user_id= db.Column(db.Integer, db.ForeignKey('User.id'))
+    planet_id= db.Column(db.Integer, db.ForeignKey('Planet.id'))
+    character_id= db.Column(db.Integer, db.ForeignKey('Character.id'))
+    user = db.relationship(User)
+    planet = db.relationship(Planet)
+    character = db.relationship(Character)
 
     def __repr__(self):
         return '<User %r>' % self.username
