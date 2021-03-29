@@ -12,6 +12,10 @@ class User(db.Model):
     lastname = db.Column(db.String(100), nullable=False)
     password = db.Column(db.String(100), nullable=False)
 
+    def serialize(self):
+        return {
+        }
+
 class Planet(db.Model):
     __tablename__ = 'Planet'
     # Here we define columns for the table planet
@@ -23,6 +27,11 @@ class Planet(db.Model):
     orbital_period= db.Column(db.Integer, nullable=False)
     rotation_period= db.Column(db.Integer, nullable=False)
     diameter= db.Column(db.Integer, nullable=False)
+
+    def serialize(self):
+        return {
+            
+        }
 
 class Character(db.Model):
     __tablename__ = 'Character'
@@ -36,6 +45,11 @@ class Character(db.Model):
     skin= db.Column(db.String(250), nullable=False)
     eye= db.Column(db.String(250), nullable=False)
 
+    def serialize(self):
+        return {
+            
+        }
+
 class Favorite(db.Model):
     __tablename__ = 'Favorite'
     # Here we define columns for the table favorite
@@ -48,12 +62,7 @@ class Favorite(db.Model):
     planet = db.relationship(Planet)
     character = db.relationship(Character)
 
-    def __repr__(self):
-        return '<User %r>' % self.username
-
     def serialize(self):
         return {
-            "id": self.id,
-            "email": self.email,
-            # do not serialize the password, its a security breach
+
         }
