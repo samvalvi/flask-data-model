@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 class User(db.Model):
-    __tablename__ = 'User'
+    __tablename__ = 'user'
     # Here we define columns for the table user
     # Notice that each column is also a normal Python instance attribute.
     id = db.Column(db.Integer, primary_key=True)
@@ -21,7 +21,7 @@ class User(db.Model):
         }
 
 class Planet(db.Model):
-    __tablename__ = 'Planet'
+    __tablename__ = 'planet'
     # Here we define columns for the table planet
     # Notice that each column is also a normal Python instance attribute.
     id= db.Column(db.Integer, primary_key=True)
@@ -43,7 +43,7 @@ class Planet(db.Model):
         }
 
 class Character(db.Model):
-    __tablename__ = 'Character'
+    __tablename__ = 'character'
     # Here we define columns for the table character
     # Notice that each column is also a normal Python instance attribute.
     id= db.Column(db.Integer, primary_key=True)
@@ -66,7 +66,7 @@ class Character(db.Model):
         }
 
 class Favorite(db.Model):
-    __tablename__ = 'Favorite'
+    __tablename__ = 'favorite'
     # Here we define columns for the table favorite
     # Notice that each column is also a normal Python instance attribute.
     id = db.Column(db.Integer, primary_key=True)

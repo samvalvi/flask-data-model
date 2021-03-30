@@ -30,9 +30,10 @@ def handle_invalid_usage(error):
 def sitemap():
     return generate_sitemap(app)
 
+# Method ti get users
 @app.route('/user', methods=['GET'])
-def get_users():
-    users=User.query.all()
+def get_user():
+    user=User.query.all()
     all_users=list(map(lambda user: user.serialize(), users))
     return jsonify(all_users), 200
 
