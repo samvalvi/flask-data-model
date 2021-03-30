@@ -14,6 +14,10 @@ class User(db.Model):
 
     def serialize(self):
         return {
+            "id": self.id,
+            "username":self.username,
+            "first_name":self.first_name,
+            "last_name":self.last_name
         }
 
 class Planet(db.Model):
@@ -30,7 +34,12 @@ class Planet(db.Model):
 
     def serialize(self):
         return {
-            
+            "id": self.id,
+            "name": self.name,
+            "climate" : self.climate,
+            "population" : self.population,
+            "orbital_period" : self.orbital_period,
+            "diameter": self.diameter
         }
 
 class Character(db.Model):
@@ -47,7 +56,13 @@ class Character(db.Model):
 
     def serialize(self):
         return {
-            
+            "id": self.id,
+            "name": self.name,
+            "birth" : self.birth,
+            "gender" : self.gender,
+            "height" : self.height,
+            "skin" : self.skin,
+            "eye" : self.eye
         }
 
 class Favorite(db.Model):
@@ -64,5 +79,6 @@ class Favorite(db.Model):
 
     def serialize(self):
         return {
-
+            "id": self.id,
+            "name": self.name
         }
