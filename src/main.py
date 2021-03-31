@@ -30,18 +30,16 @@ def handle_invalid_usage(error):
 def sitemap():
     return generate_sitemap(app)
 
-# Endpoint to get users
 @app.route('/user', methods=['GET'])
-def get_user():
+def get_users():
     user=User.query.all()
-    all_users=list(map(lambda user: user.serialize(), users))
+    all_users=list(map(lambda x: x.serialize(), user))
     return jsonify(all_users), 200
 
-# Endpoint to delete users
-@app.route('/user/<int:user_id>', methods=['GET', 'DELETE', 'PUT'])
-def handle_user(user_id):
+@app.route('/user/<int:id>', methods=['GET', 'DELETE', 'PUT'])
+def handle_user(id):
     specified_user = User.query.get(user_id)
-    request_update_user = request.get_json()  #it will be used in the update request
+    request_update_user = request.get_json()
 
     if specified_user is None:
         raise APIException('User not found', status_code=404)
@@ -74,6 +72,17 @@ def handle_user(user_id):
 
         return jsonify('Successfully Updated'), 200
 
+@app.route('/planet', methods=['GET'])
+def get_planets():
+    planet=Planet.query.all()
+    all_planets=list(map(lambda x: x.serialize(), planet))
+    return jsonify(all_planets), 200
+
+@pp.route('/character', methods=['GET'])
+def get_characters():
+    character=Character.query.all()
+    all_characters=list(map(lambda x: x.serialize(), character))
+    return jsonify(all_characters), 200
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
