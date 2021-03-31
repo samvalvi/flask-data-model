@@ -62,9 +62,6 @@ def handle_user(id):
         if 'last_name' in request_update_user:
             specified_user.last_name = request_update_user['last_name']
 
-        if 'email' in request_update_user:
-            specified_user.email = request_update_user['email']
-
         if 'password' in request_update_user:
             specified_user.password = request_update_user['password']
         
